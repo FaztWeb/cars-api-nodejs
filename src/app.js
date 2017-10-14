@@ -2,6 +2,9 @@ const morgan = require('morgan');
 const express = require('express');
 const app = express();
 
+// importing routes
+const users = require('./routes/users');
+
 // settings
 app.set('port', process.env.PORT || 3000);
 
@@ -9,11 +12,7 @@ app.set('port', process.env.PORT || 3000);
 app.use(morgan('dev'));
 
 // routes
-app.get('/', (req, res, next) => {
-	res.status(200).json({
-		message: 'You requested index page'
-	});
-});
+app.use('/users', users);
 
 // catch 404 Errors and Forward them to Error Handler
 app.use((req, res, next) => {
