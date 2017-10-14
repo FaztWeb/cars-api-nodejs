@@ -5,13 +5,15 @@
   "main": "index.js",
   "scripts": {
     "start": "node src/app.js",
-		"dev": "nodemon src/app.js"
+    "dev": "nodemon src/app.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.18.2",
     "express": "^4.16.2",
+    "mongoose": "^4.12.2",
     "morgan": "^1.9.0"
   },
   "devDependencies": {

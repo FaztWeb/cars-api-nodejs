@@ -1,16 +1,25 @@
+const bodyParser = require('body-parser');
 const morgan = require('morgan');
+const mongoose = require('mongoose');
+
 const express = require('express');
 const app = express();
 
 // importing routes
 const users = require('./routes/users');
 
+// db connection
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://localhost/car-api', {
+	useMongoClient: true
+});
+
 // settings
 app.set('port', process.env.PORT || 3000);
 
 // middlewares
 app.use(morgan('dev'));
-
+app.use(bodyParser.json());
 // routes
 app.use('/users', users);
 
