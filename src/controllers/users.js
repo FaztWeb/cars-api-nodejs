@@ -1,10 +1,14 @@
 const User = require('../models/user');
 const Car = require('../models/car');
+const Joi = require('joi');
+
+const idSchema = Joi.object().keys({
+	userId: Joi.string().regex(/^[0-9a-fA-F]{24}$/).required()
+});
 
 module.exports = {
 	index: async (req, res, next) => {
 		const users = await User.find({});
-		// throw new Error('my dummy error');
 		res.status(200).json(users);
 	},
 

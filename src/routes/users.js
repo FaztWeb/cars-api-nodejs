@@ -1,10 +1,7 @@
 const express = require('express');
 const router = require('express-promise-router')();
 
-// we can use routes in this way
-// app.route(route, callback)
-// or in this way
-// app.router(route).method(callback)
+const { validateParam } = require('../helpers/routeshelpers');
 
 const UserController = require('../controllers/users');
 
