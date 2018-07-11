@@ -9,10 +9,7 @@ const app = express();
 const users = require('./routes/users');
 
 // db connection
-mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/car-api', {
-	useMongoClient: true
-});
+mongoose.connect('mongodb://localhost/car-api');
 
 // settings
 app.set('port', process.env.PORT || 3000);
